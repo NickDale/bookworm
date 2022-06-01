@@ -1,0 +1,529 @@
+{
+	"id": "e74da0fb-24cb-4550-b012-0e5ae0e702a7",
+	"name": "BookWorm",
+	"timestamp": "2022-04-25T06:19:34.306Z",
+	"collection_id": "11191338-1a619270-06d0-4705-8656-7f7017d8b97c",
+	"folder_id": 0,
+	"environment_id": "11191338-04f6beb3-28df-4550-b735-561113bc5496",
+	"totalPass": 32,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "01709b9f-0891-4777-a58f-ca0ff8e6f917",
+			"name": "Könyvek listázása",
+			"url": "http://127.0.0.1:9999/library/api/books/",
+			"time": 97,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"Válasz típusának ellenőrzése [lista]": true,
+				"A könyvtár nem lehet üres": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz típusának ellenőrzése [lista]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A könyvtár nem lehet üres": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				97
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"Válasz típusának ellenőrzése [lista]": true,
+					"A könyvtár nem lehet üres": true
+				}
+			]
+		},
+		{
+			"id": "7b20a3da-35e1-48d3-b11f-d40089e0e55c",
+			"name": "Könyv keresése Id alapján",
+			"url": "http://127.0.0.1:9999/library/api/books/25",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"Válasz típusának ellenőrzése [object]": true,
+				"A visszaadott könyv id-ja stimmel": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz típusának ellenőrzése [object]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A visszaadott könyv id-ja stimmel": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"Válasz típusának ellenőrzése [object]": true,
+					"A visszaadott könyv id-ja stimmel": true
+				}
+			]
+		},
+		{
+			"id": "efff2198-9833-4660-b2f1-7b4dc930bce4",
+			"name": "Könyv kategóriák listázása",
+			"url": "http://127.0.0.1:9999/library/api/books/categories/",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"Válasz típusának ellenőrzése [lista]": true,
+				"A könyv kategóriák nem lehet üres": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz típusának ellenőrzése [lista]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A könyv kategóriák nem lehet üres": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"Válasz típusának ellenőrzése [lista]": true,
+					"A könyv kategóriák nem lehet üres": true
+				}
+			]
+		},
+		{
+			"id": "5e8f3dc0-6f6c-4c28-a88b-2ceec29852da",
+			"name": "Könyvtár könyveinek a száma",
+			"url": "http://127.0.0.1:9999/library/api/books/count",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"Válasz típusának ellenőrzése [number]": true,
+				"A könyvtár könyveinek szám nagyobb kell legyen mint 0": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz típusának ellenőrzése [number]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A könyvtár könyveinek szám nagyobb kell legyen mint 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"Válasz típusának ellenőrzése [number]": true,
+					"A könyvtár könyveinek szám nagyobb kell legyen mint 0": true
+				}
+			]
+		},
+		{
+			"id": "d55363fa-6289-4b5e-943c-c5ea5495d259",
+			"name": "Vonalkód lekérdezése",
+			"url": "http://127.0.0.1:9999/library/api/books/barcode/25",
+			"time": 130,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"A könyvtár nem lehet üres": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A könyvtár nem lehet üres": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				130
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"A könyvtár nem lehet üres": true
+				}
+			]
+		},
+		{
+			"id": "76af32eb-b5e0-40ce-a807-7b2dfede4496",
+			"name": "Jelszó megváltoztatása",
+			"url": "http://127.0.0.1:9999/library/api/profiles/password/change",
+			"time": 5439,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz 200": true
+			},
+			"testPassFailCounts": {
+				"Státusz 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5439
+			],
+			"allTests": [
+				{
+					"Státusz 200": true
+				}
+			]
+		},
+		{
+			"id": "126dcff4-2390-4368-a104-5f82e3dcef33",
+			"name": "Felhasználó adatai",
+			"url": "http://127.0.0.1:9999/library/api/profiles/details",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"email ellenőzése": true,
+				"felhasználónév ellenőzése": true,
+				"felhasználó id ellenőzésdse": true,
+				"Felhasználónév/e-mail cím ellenőrzésel": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"email ellenőzése": {
+					"pass": 1,
+					"fail": 0
+				},
+				"felhasználónév ellenőzése": {
+					"pass": 1,
+					"fail": 0
+				},
+				"felhasználó id ellenőzésdse": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Felhasználónév/e-mail cím ellenőrzésel": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"email ellenőzése": true,
+					"felhasználónév ellenőzése": true,
+					"felhasználó id ellenőzésdse": true,
+					"Felhasználónév/e-mail cím ellenőrzésel": true
+				}
+			]
+		},
+		{
+			"id": "8e236863-2055-4976-864f-d69c393059aa",
+			"name": "Felhasználó kölcsönzései",
+			"url": "http://127.0.0.1:9999/library/api/loans/?userId=1",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"Válasz típusának ellenőrzése [lista]": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz típusának ellenőrzése [lista]": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"Válasz típusának ellenőrzése [lista]": true
+				}
+			]
+		},
+		{
+			"id": "c55b43ab-5b38-4660-8e95-7420df8264bd",
+			"name": "Kölcsönzés by Id",
+			"url": "http://127.0.0.1:9999/library/api/loans/1",
+			"time": 288,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"Válasz típusának ellenőrzése": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Válasz típusának ellenőrzése": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				288
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"Válasz típusának ellenőrzése": true
+				}
+			]
+		},
+		{
+			"id": "77a37f37-5f8a-4d5c-880c-7890fba4d436",
+			"name": "Kölcsönzés hosszabítása",
+			"url": "http://127.0.0.1:9999/library/api/loans/extend/1",
+			"time": 1419,
+			"responseCode": {
+				"code": 406,
+				"name": "Not Acceptable"
+			},
+			"tests": {
+				"Elvárt hibaüzenet ellenőzése": true
+			},
+			"testPassFailCounts": {
+				"Elvárt hibaüzenet ellenőzése": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1419
+			],
+			"allTests": [
+				{
+					"Elvárt hibaüzenet ellenőzése": true
+				}
+			]
+		},
+		{
+			"id": "903c6aa8-5e35-4507-a7a6-23ca1e63d4d1",
+			"name": "Bejelentkezés",
+			"url": "http://127.0.0.1:9999/library/api/login/",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Státusz ellenőrzése [200]": true,
+				"A válasz tartalmaz tokent": true,
+				"Felhasználónév/e-mail cím megyezik a bejelentkezési adatokkal": true,
+				"A visszzaadott felhasználónak típusa: USER": true
+			},
+			"testPassFailCounts": {
+				"Státusz ellenőrzése [200]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A válasz tartalmaz tokent": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Felhasználónév/e-mail cím megyezik a bejelentkezési adatokkal": {
+					"pass": 1,
+					"fail": 0
+				},
+				"A visszzaadott felhasználónak típusa: USER": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Státusz ellenőrzése [200]": true,
+					"A válasz tartalmaz tokent": true,
+					"Felhasználónév/e-mail cím megyezik a bejelentkezési adatokkal": true,
+					"A visszzaadott felhasználónak típusa: USER": true
+				}
+			]
+		},
+		{
+			"id": "fce3955e-dc3e-476e-aa17-2285fe0973a1",
+			"name": "Elfelejtett jelszó",
+			"url": "http://127.0.0.1:9999/library/api/password/reset",
+			"time": 3812,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"A válasz státusza 200": true
+			},
+			"testPassFailCounts": {
+				"A válasz státusza 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3812
+			],
+			"allTests": [
+				{
+					"A válasz státusza 200": true
+				}
+			]
+		},
+		{
+			"id": "360a746f-ba2a-48fb-a0dc-f19d7ae3a7c5",
+			"name": "Kapcsolat - email",
+			"url": "http://127.0.0.1:9999/library/api/contacts/mail",
+			"time": 1469,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"A válasz státusza 200": true
+			},
+			"testPassFailCounts": {
+				"A válasz státusza 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1469
+			],
+			"allTests": [
+				{
+					"A válasz státusza 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 12773,
+	"collection": {
+		"requests": [
+			{
+				"id": "01709b9f-0891-4777-a58f-ca0ff8e6f917",
+				"method": "GET"
+			},
+			{
+				"id": "7b20a3da-35e1-48d3-b11f-d40089e0e55c",
+				"method": "GET"
+			},
+			{
+				"id": "efff2198-9833-4660-b2f1-7b4dc930bce4",
+				"method": "GET"
+			},
+			{
+				"id": "5e8f3dc0-6f6c-4c28-a88b-2ceec29852da",
+				"method": "GET"
+			},
+			{
+				"id": "d55363fa-6289-4b5e-943c-c5ea5495d259",
+				"method": "GET"
+			},
+			{
+				"id": "76af32eb-b5e0-40ce-a807-7b2dfede4496",
+				"method": "POST"
+			},
+			{
+				"id": "126dcff4-2390-4368-a104-5f82e3dcef33",
+				"method": "GET"
+			},
+			{
+				"id": "8e236863-2055-4976-864f-d69c393059aa",
+				"method": "GET"
+			},
+			{
+				"id": "c55b43ab-5b38-4660-8e95-7420df8264bd",
+				"method": "GET"
+			},
+			{
+				"id": "77a37f37-5f8a-4d5c-880c-7890fba4d436",
+				"method": "PUT"
+			},
+			{
+				"id": "903c6aa8-5e35-4507-a7a6-23ca1e63d4d1",
+				"method": "POST"
+			},
+			{
+				"id": "fce3955e-dc3e-476e-aa17-2285fe0973a1",
+				"method": "POST"
+			},
+			{
+				"id": "360a746f-ba2a-48fb-a0dc-f19d7ae3a7c5",
+				"method": "POST"
+			}
+		]
+	}
+}

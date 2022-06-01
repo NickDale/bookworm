@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Kiss Balázs",
+    "message": "Nemrégiben kezdtem el használni az alkalmazást és nagyon megkönnyítete a könyvári könyvek kezelését.",
+    "photo": "https://i.postimg.cc/5Nrw360Y/male-photo1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Nagy Éva",
+    "message": "Évek óta arra vártam, hogy elég legyen a telefonom egy kölcsönzéshez.\n Köszönöm ",
+    "photo": "https://i.postimg.cc/sxd2xCD2/female-photo1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Boldizsár Bonifác",
+    "message": "Korszerű, gyorsan tanulható és folyamatosan fejlődő. Szóval egyszerűen csak jó... ",
+    "photo": "https://thumbs.dreamstime.com/z/ds-5-455000.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Tevén Viz Elek",
+    "message": "Még csak most ismerkem az alkalmazással, de nagyon ötletesnek tűnik",
+    "photo": "https://i.postimg.cc/5Nrw360Y/male-photo1.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Nikoletta",
+    "message": "Imádom, bárcsak akkor jött volna be amikor én voltam középiskolás ",
+    "photo": "https://thumbs.dreamstime.com/z/reading-2151219.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Ábrahám",
+    "message": "Én könyvtárosként is használom az alkalmazást. Nagyon meg vagyok elégedve vele és mindenkinek ajánlom...",
+    "photo": "https://thumbs.dreamstime.com/z/owl-1495749.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Oszkár",
+    "message": "Nálunk már a könyvátban mindenki ezt használja, mert annyira egyszerű.",
+    "photo": "https://thumbs.dreamstime.com/z/angry-student-boy-597694.jpg"
+  }
+]

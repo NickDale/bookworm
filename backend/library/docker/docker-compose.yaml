@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  bookworm_mysql_db:
+    container_name: bookworm_mysql_db
+    image: mysql:8.0.27
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=bookworm
+      - MYSQL_USER:user
+      - MYSQL_PASSWORD:password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend
+
+  app-server:
+    container_name: bookworm_backend_app
+    image: bookworm-backend-app
+    depends_on:
+      - bookworm_mysql_db
+    build:
+      context: ./../
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    ports:
+      - "9999:9999"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://bookworm_mysql_db:3306/bookworm?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+    networks:
+      - backend
+
+networks:
+  backend:

@@ -1,0 +1,5 @@
+.loading {
+    --background: #222;
+    --spinner-color: rgb(10, 91, 145);
+    color: #fff;
+}

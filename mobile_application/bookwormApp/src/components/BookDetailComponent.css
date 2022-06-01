@@ -1,0 +1,9 @@
+.barcode_wrapper {
+    --min-height: 30%;
+    --min-width: 70%;
+}
+
+.barcode {
+    height: 30%;
+    width: 70%;
+}

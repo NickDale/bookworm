@@ -1,0 +1,12 @@
+package com.library.controller.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class BarcodeImage {
+    private String base64img;
+}

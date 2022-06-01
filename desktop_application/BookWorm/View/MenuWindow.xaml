@@ -1,0 +1,124 @@
+﻿<Window x:Class="BookWorm.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookWorm"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="450" Width="800" AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Background color-->
+        <Border CornerRadius="10" Grid.ColumnSpan="4">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFFFF865" Offset="0.13"/>
+                    <GradientStop Color="#FF00FFA2" Offset="0.5"/>
+                    <GradientStop Color="#FFB64646" Offset="0.97" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <!--Menu Bar + Exit & Minimaze button-->
+        <StackPanel Grid.ColumnSpan="4">
+            <Menu MouseLeftButtonDown="Minimize" >
+                <MenuItem Header="File" >
+                    <MenuItem Header="Logout"
+                              Click="Close"/>
+                </MenuItem>
+            </Menu>
+            <Ellipse Fill="Yellow" Height="16" Width="16" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-17,30,0" ToolTip="Minimize" MouseLeftButtonDown="Minimize"/>
+            <Ellipse x:Name="CloseButton" Fill="Red" Grid.Row="0" Height="16" Width="16" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.625,0.128" Margin="0,-17,8,0" MouseLeftButtonDown="CloseApp" ToolTip="Close">
+
+            </Ellipse>
+        </StackPanel>
+
+        <!--Navigation Button To Pages-->
+        <!--BookBorrow Nav-->
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Margin="10,30,10,0" Background="#FF8EB3F1" >
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Image Source="/Resources/borrow.png" MouseLeftButtonDown="BookBorrow"/>
+                </StackPanel>
+            </Button>
+            <Label Content="Book Borrow"
+                   FontWeight="DemiBold"
+                   FontFamily="helvetica"
+                   FontSize="22"
+                   Foreground="Black"
+                   HorizontalAlignment="Center"/>
+        </StackPanel>
+        <!--Add User Nav-->
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Margin="10,30,10,0" Background="#FF8EB3F1" >
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Image Source="/Resources/addUser.png" MouseLeftButtonDown="NavigateAddUser"/>
+                </StackPanel>
+            </Button>
+            <Label Content="Add User"
+                   FontWeight="DemiBold"
+                   FontFamily="helvetica"
+                   FontSize="22"
+                   Foreground="Black"
+                   HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Label Content="Addition"
+                   FontWeight="DemiBold"
+                   FontFamily="helvetica"
+                   FontSize="22"
+                   Foreground="Black"
+                   HorizontalAlignment="Center" Margin="0,77,0,328" Grid.Column="2"/>
+        <!--Book Add Navigation-->
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-74,0,0,0">
+            <Button Margin="-11,30,10,0" Background="#FF8EB3F1" Width="90" Height="180" >
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Image Source="/Resources/addBook.png" MouseLeftButtonDown="NavigateToAddBook" Height="173" Width="80"/>
+                </StackPanel>
+            </Button>
+            <Label Content="Book"
+                   FontWeight="DemiBold"
+                   FontFamily="helvetica"
+                   FontSize="22"
+                   Foreground="Black"
+                   HorizontalAlignment="Center" Margin="-9,0,0,0"/>
+        </StackPanel>
+        <!--Author Add Navigation-->
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="111,0,0,0">
+            <Button Margin="-11,30,10,0" Background="#FF8EB3F1" Width="90" Height="180" >
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Image Source="/Resources/Author.png" MouseLeftButtonDown="NavigateToAuthorAdd" Height="173"/>
+                </StackPanel>
+            </Button>
+            <Label Content="Author"
+                   FontWeight="DemiBold"
+                   FontFamily="helvetica"
+                   FontSize="22"
+                   Foreground="Black"
+                   HorizontalAlignment="Center" Margin="-19,0,0,0"/>
+        </StackPanel>
+    <!--All Borrow Navigation -->
+        <StackPanel Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Margin="10,30,10,0" Background="#FF8EB3F1" >
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Image Source="/Resources/List.png" MouseLeftButtonDown="NavigateToListAllBorrow"/>
+                </StackPanel>
+            </Button>
+            <Label Content="List All Borrow"
+                   FontWeight="DemiBold"
+                   FontFamily="helvetica"
+                   FontSize="22"
+                   Foreground="Black"
+                   HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

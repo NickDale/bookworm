@@ -1,0 +1,7 @@
+{
+  "name": "bookwormApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

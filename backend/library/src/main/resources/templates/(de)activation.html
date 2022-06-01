@@ -1,0 +1,174 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="width=device-width" name="viewport">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <title th:text="#{forgotten.password.subject} ">TITLE
+    </title>
+    <style>
+        @media only screen and (min-width: 481px) and (max-width: 640px) {
+            table[class=body] h1 {
+                font-size: 28px !important;
+                margin-bottom: 10px !important;
+            }
+
+            table[class=body] ul,
+            table[class=body] ol,
+            table[class=body] td,
+            table[class=body] a {
+                font-size: 16px !important;
+            }
+
+            table[class=body] .content {
+                padding: 0 !important;
+            }
+
+            table[class=body] .container {
+                padding: 0 !important;
+                width: 95% !important;
+            }
+
+            table[class=body] .main {
+                border-left-width: 0 !important;
+                border-radius: 0 !important;
+                border-right-width: 0 !important;
+            }
+
+            table[class=body] .btn table {
+                width: 95% !important;
+            }
+
+            table[class=body] {
+                height: auto !important;
+                max-width: 95% !important;
+                width: auto !important;
+            }
+
+            .offersp {
+                font-size: 14px !important;
+                text-decoration: underline;
+            }
+        }
+
+        @media only screen and (max-width: 460px) {
+            .ctabuttoncontainer a {
+                font-size: 16px;
+            }
+        }
+
+        @media all {
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+                line-height: 100%;
+            }
+        }
+    </style>
+</head>
+<body class=""
+      style="font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+<table bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" class="body"
+       role="presentation"
+       style="border-collapse: separate; mso-table-lspace: 0; mso-table-rspace: 0; background-color: #fff; width: 100%; border-spacing: 0;"
+       width="100%">
+    <tr>
+        <td class="container"
+            style="font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; max-width: 21cm; margin: 0 auto;"
+            valign="top">
+            <div class="content" style="display: block; margin: 0 auto; max-width: 21cm;">
+
+                <!-- START CENTERED WHITE CONTAINER -->
+                <table class="main" role="presentation"
+                       style="border-collapse: separate; mso-table-lspace: 0; mso-table-rspace: 0; background: #ffffff; border-radius: 3px; width: 100%; border-spacing: 0;"
+                       width="100%">
+
+                    <!-- START MAIN CONTENT AREA -->
+                    <tr>
+                        <td class="wrapper"
+                            style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box;"
+                            valign="top">
+
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" class="letter__body"
+                                   role="presentation"
+                                   style="border-collapse: separate; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%; clear: both; max-width: 21cm; text-align: center; border-spacing: 0;"
+                                   width="100%">
+                                <tr>
+                                    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;"
+                                        valign="top">
+                                        <table style="border-collapse: separate; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%; border-spacing: 0;"
+                                               width="100%">
+                                            <tr>
+                                                <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;"
+                                                    valign="top">
+                                                    <img alt="headerimage" class="headerimg"
+                                                         src="cid:logo"
+                                                         style="border: none; -ms-interpolation-mode: bicubic; max-width: 50%; width: 50%;"
+                                                         title="headerimage">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;"
+                                                    valign="top">
+                                                    <p class="align-left normal__text body__header"
+                                                       style="font-family: sans-serif; font-weight: normal; font-size: 17px; color: #393939; text-align: left; margin: 20px 0 30px 20px;">
+                                                        <span th:text="|#{dear} ${data.name}!|">Dear CUSTOMER_NAME</span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left"
+                                                    class="align-left"
+                                                    style="font-family: sans-serif; font-size: 14px; vertical-align: top; text-align: left;"
+                                                    valign="top">
+                                                    <p class="normal__text text__highlighted highlighted__content"
+                                                       style="font-family: sans-serif; margin: 0 0 5px 20px; background-color: #e7e9ee; color: #5C2D91; font-size: 20px; font-weight: bold;">
+                                                       <span th:text="${data.activation} ? #{account.activation} : #{account.deactivation}">
+                                                            Your account has been (de)activated
+                                                       </span>
+                                                    </p>
+                                                    <br />
+                                                    <p class="normal__text"
+                                                       style="font-family: sans-serif; font-weight: normal; font-size: 17px; margin: 0 0 5px 20px; color: #393939;">
+                                                        <span th:text="#{regards}"> With kind regard,</span>
+                                                        <br/>
+                                                        <span th:text="#{book.worm.team}"> The BookWorm team</span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- START FOOTER -->
+                            <table bgcolor="#e7e9ee" border="0" cellpadding="0" cellspacing="0" class="footer"
+                                   role="presentation"
+                                   style="border-collapse: separate; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%; clear: both; max-width: 21cm; margin: 0 auto; background-color: #e7e9ee; margin-top: 15px; border-spacing: 0;"
+                                   width="100%">
+                                <tr class="offercon">
+                                    <td class="offercat"
+                                        style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 30px; padding-top: 30px;"
+                                        valign="top">
+                                        <span class="offersp footer__cpr footer__text"
+                                              style="font-size: 14px; color: #5C2D91;">All rights reserved, ©</span>
+                                        <a class="offer bl1" href="https://www.linkedin.com/in/nbalogh92/"
+                                           style="text-decoration: underline; padding-right: 5px; padding-left: 5px; color: #5C2D91;"
+                                           target="_blank">
+                                            <span class="offersp">Balogh Norbert</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- END FOOTER -->
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿<Window x:Class="BookWorm.AdminPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookWorm"
+        mc:Ignorable="d"
+        Title="Admin Page" Height="500" Width="800"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+
+
+        <Border CornerRadius="10" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFFFF865" Offset="0.13"/>
+                    <GradientStop Color="#FF00FFA2" Offset="0.5"/>
+                    <GradientStop Color="#FFB64646" Offset="0.97" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel Grid.ColumnSpan="2">
+            <Menu MouseLeftButtonDown="Minimize" >
+                <MenuItem Header="File" >
+                    <MenuItem Header="Main Menu"
+                              Click="MenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+            <Ellipse Fill="Yellow" Height="16" Width="16" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-17,30,0" ToolTip="Minimize" MouseLeftButtonDown="Minimize"/>
+            <Ellipse x:Name="CloseButton" Fill="Red" Grid.Row="0" Height="16" Width="16" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.625,0.128" Margin="0,-17,8,0" MouseLeftButtonDown="CloseApp" ToolTip="Close">
+
+            </Ellipse>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Margin="0,55,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="780">
+
+            <TabControl>
+                <TabItem Header="Admin">
+                    <DataGrid Width="786" x:Name="AllAdmin" Height="350" SelectionChanged="AllAdmin_SelectionChanged" />
+
+
+                </TabItem>
+                <TabItem Header="Librarian" >
+                    <DataGrid Width="786" x:Name="AllLibrarian" Height="350" SelectionChanged="AllLibrarian_SelectionChanged"/>
+
+                </TabItem>
+                <TabItem Header="Users" >
+                    <DataGrid Width="786" x:Name="AllUsers" Height="350" SelectionChanged="AllUsers_SelectionChanged"/>
+
+                </TabItem>
+            </TabControl>
+            <Button x:Name="deactivate"
+                            Width="100" Height="25" 
+                            Content="Deactivate User"
+                            Foreground="Black"
+                            FontFamily="Helvetica"
+                            Background="Transparent" 
+                            BorderBrush="Black" 
+                            Click="DeactivateUser"
+                            IsDefault="True" HorizontalAlignment="Left" Margin="0,14,0,0"
+                            />
+            <Button x:Name="activate"
+                            Width="100" Height="25" 
+                            Content="Activate User"
+                            Foreground="Black"
+                            FontFamily="Helvetica"
+                            Background="Transparent" 
+                            BorderBrush="Black" 
+                            Click="ActivateUser"
+                            IsDefault="True" HorizontalAlignment="Left" Margin="108,-25,0,0"
+                            />
+        </StackPanel>
+
+    </Grid>
+</Window>

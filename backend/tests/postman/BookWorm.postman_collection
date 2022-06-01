@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "1a619270-06d0-4705-8656-7f7017d8b97c",
+		"name": "BookWorm",
+		"description": "`Ez kollekció tartalmazza a backend által kínált összes REST API-t.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Könyvek",
+			"item": [
+				{
+					"name": "Könyvek listázása",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"pm.test(\"Válasz típusának ellenőrzése [lista]\", () => pm.expect(pm.response.json()).to.be.a('array'));\r",
+									"\r",
+									"pm.test(\"A könyvtár nem lehet üres\", () => pm.expect(pm.response.json()).to.be.a('array').and.not.empty);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/books/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "30",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Könyv keresése Id alapján",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"pm.test(\"Válasz típusának ellenőrzése [object]\", () => pm.expect(pm.response.json()).to.be.a('object'));\r",
+									"\r",
+									"pm.test(\"A visszaadott könyv id-ja stimmel\", () => {\r",
+									"    () => pm.expect(pm.environment.get('bookId')).to.be.equals(pm.response.json().book_id)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/books/{{bookId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books",
+								"{{bookId}}"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "30",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Könyv kategóriák listázása",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"pm.test(\"Válasz típusának ellenőrzése [lista]\", () => pm.expect(pm.response.json()).to.be.a('array'));\r",
+									"\r",
+									"pm.test(\"A könyv kategóriák nem lehet üres\", () => pm.expect(pm.response.json()).to.be.a('array').and.not.empty);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/books/categories/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books",
+								"categories",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "30",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Könyvtár könyveinek a száma",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"pm.test(\"Válasz típusának ellenőrzése [number]\", () => pm.expect(pm.response.json()).to.be.a('number'));\r",
+									"\r",
+									"pm.test(\r",
+									"    \"A könyvtár könyveinek szám nagyobb kell legyen mint 0\", \r",
+									"    () => pm.expect(pm.response.json()).to.be.a('number').gte(0)\r",
+									");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/books/count",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vonalkód lekérdezése",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"\r",
+									"pm.test(\"A könyvtár nem lehet üres\", () => pm.expect(pm.response.json().base64img).to.be.a('string').and.not.empty);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/books/barcode/{{bookId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books",
+								"barcode",
+								"{{bookId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Személyes profil",
+			"item": [
+				{
+					"name": "Jelszó megváltoztatása",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const actual_status_code = pm.response.code;\r",
+									"\r",
+									"if(actual_status_code == 200){\r",
+									"    pm.test(\"Státusz 200\", () => pm.response.to.have.status(200));\r",
+									"    \r",
+									"}else if(actual_status_code == 400){\r",
+									"    pm.test(\r",
+									"        \"Elvárt hibaüzenet ellenőzése [400]\",\r",
+									"        () => pm.expect(pm.response.json().message).to.be.a('string').include('Bad credentials'));\r",
+									"\r",
+									"}else if(actual_status_code == 403){\r",
+									"    pm.test(\r",
+									"        \"Elvárt hibaüzenet ellenőzése [403]\",\r",
+									"        () => pm.expect(pm.response.json().message).to.be.a('string'));\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1,\r\n    \"old_password\": \"{{password}}\",\r\n    \"new_password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/profiles/password/change",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profiles",
+								"password",
+								"change"
+							]
+						},
+						"description": "A jelszó megváltoztatásához szükség van egy `régi` és egy `új jelszó` megadására valamint a `felhasználó azonosítóra`.  \n  \n**FIGYELEM!**  \n*Ezzel a végponttal csak saját felhasználónk jelszavát tudjuk megváltoztatni.  \npl.: Ha be vagyok jelentkezve az 1-es id-vel rendelkező felhasználóval és valami miatt mégis más id szerepelne a hívásban mint ami a sajátom, akkor a backenden lévő validáció ezt el fogja dobni!*\n\nPélda:\n\n``` json\n{\n    \"userId\": 1,\n    \"oldPassword\":\"z5MqNcWwXdbrEcaH\",\n    \"newPassword\":\"123456\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Felhasználó adatai",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const actual_status_code = pm.response.code;\r",
+									"const json_data = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Státusz ellenőrzése [200]\",() => pm.expect(actual_status_code).to.be.eql(200));\r",
+									"\r",
+									"pm.test(\"email ellenőzése\", () => pm.expect(json_data.email).to.be.a('string').and.not.to.be.empty);\r",
+									"pm.test(\"felhasználónév ellenőzése\", () => pm.expect(json_data.username).to.be.a('string').and.not.to.be.empty);\r",
+									"pm.test(\"felhasználó id ellenőzésdse\", () => pm.expect(json_data.userId).not.null);\r",
+									"\r",
+									"pm.test(\r",
+									"    \"Felhasználónév/e-mail cím ellenőrzésel\", \r",
+									"    () => pm.expect(pm.environment.get('username')).to.be.oneOf([json_data.username,json_data.email])\r",
+									");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/profiles/details",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profiles",
+								"details"
+							]
+						},
+						"description": "A jelszó megváltoztatásához szükség van egy `régi` és egy `új jelszó` megadására valamint a `felhasználó azonosítóra`.  \n  \n**FIGYELEM!**  \n*Ezzel a végponttal csak saját felhasználónk jelszavát tudjuk megváltoztatni.  \npl.: Ha be vagyok jelentkezve az 1-es id-vel rendelkező felhasználóval és valami miatt mégis más id szerepelne a hívásban mint ami a sajátom, akkor a backenden lévő validáció ezt el fogja dobni!*\n\nPélda:\n\n``` json\n{\n    \"userId\": 1,\n    \"oldPassword\":\"z5MqNcWwXdbrEcaH\",\n    \"newPassword\":\"123456\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Felhasználó kölcsönzései",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"pm.test(\"Válasz típusának ellenőrzése [lista]\", () => pm.expect(pm.response.json()).to.be.a('array'));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/loans/?userId={{user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"loans",
+								""
+							],
+							"query": [
+								{
+									"key": "book_title",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "30",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "{{user_id}}"
+								}
+							]
+						},
+						"description": "A jelszó megváltoztatásához szükség van egy `régi` és egy `új jelszó` megadására valamint a `felhasználó azonosítóra`.  \n  \n**FIGYELEM!**  \n*Ezzel a végponttal csak saját felhasználónk jelszavát tudjuk megváltoztatni.  \npl.: Ha be vagyok jelentkezve az 1-es id-vel rendelkező felhasználóval és valami miatt mégis más id szerepelne a hívásban mint ami a sajátom, akkor a backenden lévő validáció ezt el fogja dobni!*\n\nPélda:\n\n``` json\n{\n    \"userId\": 1,\n    \"oldPassword\":\"z5MqNcWwXdbrEcaH\",\n    \"newPassword\":\"123456\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Kölcsönzés by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Státusz ellenőrzése [200]\", () => pm.response.to.have.status(200));\r",
+									"\r",
+									"pm.test(\"Válasz típusának ellenőrzése\", () => pm.expect(pm.response.json()).to.be.a('object'));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/loans/{{loanId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"loans",
+								"{{loanId}}"
+							]
+						},
+						"description": "A jelszó megváltoztatásához szükség van egy `régi` és egy `új jelszó` megadására valamint a `felhasználó azonosítóra`.  \n  \n**FIGYELEM!**  \n*Ezzel a végponttal csak saját felhasználónk jelszavát tudjuk megváltoztatni.  \npl.: Ha be vagyok jelentkezve az 1-es id-vel rendelkező felhasználóval és valami miatt mégis más id szerepelne a hívásban mint ami a sajátom, akkor a backenden lévő validáció ezt el fogja dobni!*\n\nPélda:\n\n``` json\n{\n    \"userId\": 1,\n    \"oldPassword\":\"z5MqNcWwXdbrEcaH\",\n    \"newPassword\":\"123456\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Kölcsönzés hosszabítása",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const actual_status_code = pm.response.code;\r",
+									"const json_data = pm.response.json();\r",
+									"\r",
+									"if(actual_status_code == 200){  \r",
+									"    pm.test(\"Státusz ellenőrzése [201]\", () => pm.expect(actual_status_code).to.be.eql(200));\r",
+									"\r",
+									"}else if(actual_status_code == 406){\r",
+									"    pm.test(\r",
+									"        \"Elvárt hibaüzenet ellenőzése\", \r",
+									"        () => pm.expect(json_data.message).to.be.a('string').include('This is already expired or war brought back'));\r",
+									"}else{\r",
+									"    pm.test(\r",
+									"        \"Elvárt hibaüzenet ellenőzése\", \r",
+									"        () => pm.expect(json_data.message).to.be.a('string').include('This book has already been extended'));\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/loans/extend/{{loanId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"loans",
+								"extend",
+								"{{loanId}}"
+							]
+						},
+						"description": "A jelszó megváltoztatásához szükség van egy `régi` és egy `új jelszó` megadására valamint a `felhasználó azonosítóra`.  \n  \n**FIGYELEM!**  \n*Ezzel a végponttal csak saját felhasználónk jelszavát tudjuk megváltoztatni.  \npl.: Ha be vagyok jelentkezve az 1-es id-vel rendelkező felhasználóval és valami miatt mégis más id szerepelne a hívásban mint ami a sajátom, akkor a backenden lévő validáció ezt el fogja dobni!*\n\nPélda:\n\n``` json\n{\n    \"userId\": 1,\n    \"oldPassword\":\"z5MqNcWwXdbrEcaH\",\n    \"newPassword\":\"123456\"\n}\n\n```"
+					},
+					"response": []
+				}
+			],
+			"description": "A bejelentkezett felhasználóhoz tartozó adatokkal kapcsolatos REST API-kat tartalmazza  \nPl.:  \nA mobilon bejelentkezik `xy` felhasználó és megtekintheti a saját személyes adatait, korábbi és aktuális kölcsönzéseit.  \nAz erre szolgáló végpontok a `/profile/**` kiültetés alatt találhatók és az egyszerű felhasználó ezeket éri el."
+		},
+		{
+			"name": "Bejelentkezés",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const actual_status_code = pm.response.code;\r",
+							"const json_data = pm.response.json();\r",
+							"\r",
+							"\r",
+							"if(actual_status_code == 200){\r",
+							"    pm.test(\"Státusz ellenőrzése [200]\",() => pm.expect(actual_status_code).to.be.eql(200));\r",
+							"\r",
+							"\tconst auth_header = pm.response.headers.get('Authorization');\t\r",
+							"    \r",
+							"\tpm.test(\"A válasz tartalmaz tokent\", () => pm.expect(auth_header).to.be.a('string').and.not.be.empty);\r",
+							"\tpm.environment.set('token',`${auth_header}`);\r",
+							"\t\r",
+							"\tconst has_username = pm.expect(pm.response.json()).to.have.property('username');\r",
+							"\tif(has_username){\r",
+							"\t\tpm.test(\r",
+							"\t\t\t\"Felhasználónév/e-mail cím megyezik a bejelentkezési adatokkal\", \r",
+							"\t\t\t() => pm.expect(pm.environment.get('username')).to.be.oneOf([json_data.username,json_data.email])\r",
+							"\t\t);\r",
+							"\t\tconst user_type = json_data.user_type;\r",
+							"\t\tpm.test(\"A visszzaadott felhasználónak típusa: \" + user_type.value, () => pm.expect(user_type).to.be.an('object').is.not.null);\r",
+							"\t}\r",
+							"}else if(actual_status_code == 401){\r",
+							"\r",
+							"    pm.test(\"Elvárt hibaüzenet ellenőzése\", () => pm.expect(json_data.message).to.be.a('string').include('Unauthorized'));\r",
+							"\r",
+							"}else if(actual_status_code == 403){\r",
+							"\r",
+							"    pm.test(\"Elvárt hibaüzenet ellenőzése\", () => pm.expect(json_data.message).to.be.a('string').include('User is blocked'));\r",
+							"\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login",
+						""
+					]
+				},
+				"description": "`Publikusan, authentikácó nélkül elérhető végpont.`\n\nLeellenőrzi , hogy létezik-e az adott felhasználó és amennyiben igen, akkor megvizsgálja, hogy a hozzá tartozó jelszó megegyezik-e az adatbázisban titkosítottan tárolt jelszóval.  \nAmennyiben igen akkkor visszaadja az adatott felhasználó adatait."
+			},
+			"response": []
+		},
+		{
+			"name": "Elfelejtett jelszó",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"A válasz státusza 200\", () => pm.response.to.have.status(200));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nbalogh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/password/reset",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"password",
+						"reset"
+					]
+				},
+				"description": "`Publikusan, authentikácó nélkül elérhető végpont.`\n\nLeellenőrzi , hogy létezik-e az adott felhasználó és amennyiben igen, akkor az adatbázisban hozzá tartozó e-mail címre kiküldi az újonnan generált ideiglenes jelszót."
+			},
+			"response": []
+		},
+		{
+			"name": "Kapcsolat - email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"A válasz státusza 200\", () => pm.response.to.have.status(200));\r",
+							"pm.test(\"A válasz státusza 200\", () => {\r",
+							"\r",
+							"    pm.expect(pm.response.json()).to.be.true\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Teszt Elek\",\r\n    \"email\":\"balogh.norbert92@gmail.com\",\r\n    \"message\":\"teszt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/contacts/mail",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts",
+						"mail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

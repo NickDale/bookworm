@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\addBook.png" />
+    <None Remove="Resources\addUser.png" />
+    <None Remove="Resources\Author.png" />
+    <None Remove="Resources\bookworm.png" />
+    <None Remove="Resources\bookworms.png" />
+    <None Remove="Resources\borrow.png" />
+    <None Remove="Resources\List.png" />
+    <None Remove="Resources\pass.png" />
+    <None Remove="Resources\User.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\addBook.png" />
+    <Resource Include="Resources\addUser.png" />
+    <Resource Include="Resources\Author.png" />
+    <Resource Include="Resources\borrow.png" />
+    <Resource Include="Resources\List.png" />
+    <Resource Include="Resources\pass.png" />
+    <Resource Include="Resources\User.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\bookworms.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+  </ItemGroup>
+
+</Project>
